@@ -139,10 +139,6 @@
 	};
 };
 
-&crypto {
-	status = "okay";
-};
-
 &i2c0 {
 	status = "okay";
 };
@@ -156,19 +152,10 @@
 	status = "okay";
 	phy-mode = "sgmii";
 	phy-handle = <&phy0>;
-	phy1: ethernet-phy@9 {
-		reg = <9>;
-	};
-	phy0: ethernet-phy@8 {
-		reg = <8>;
-	};
-};
 
-&mac1 {
-	dma-noncoherent;
-	status = "okay";
-	phy-mode = "sgmii";
-	phy-handle = <&phy1>;
+	phy0: ethernet-phy@11 {
+		reg = <11>;
+	};
 };
 
 &mbox {
