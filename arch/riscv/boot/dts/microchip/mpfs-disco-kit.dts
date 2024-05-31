@@ -172,6 +172,14 @@
 	status = "okay";
 };
 
+&i2c0 {
+	status = "okay";
+};
+
+&gpio2 {
+	status = "okay";
+};
+
 &mmuart4 {
 	status = "okay";
 };
