@@ -3,7 +3,7 @@
 
 / {
 
-	fabric_bus: fabric-bus@40000000 {
+	fabric_bus: fabric-bus@60000000 {
 		compatible = "simple-bus";
 		#address-cells = <2>;
 		#size-cells = <2>;
