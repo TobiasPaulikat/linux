@@ -204,4 +204,10 @@
 &syscontroller {
 	status = "okay";
 };
+&fpgadma {
+	status = "okay";
+};
 
+&fpgalsram {
+	status = "okay";
+};
