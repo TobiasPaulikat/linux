@@ -1,19 +1,19 @@
 // SPDX-License-Identifier: (GPL-2.0 OR MIT)
-/* Copyright (c) 2020-2021 Microchip Technology Inc */
+/* Copyright (c) 2022 Microchip Technology Inc */
 
 /dts-v1/;
 
 #include "mpfs.dtsi"
-#include "mpfs-disco-kit-fabric.dtsi"
+#include "mpfs-video-kit-fabric.dtsi"
 
 /* Clock frequency (in Hz) of the rtcclk */
-#define RTCCLK_FREQ		   1000000
+#define MTIMER_FREQ		1000000
 
 / {
 	#address-cells = <2>;
 	#size-cells = <2>;
-	model = "Microchip PolarFire-SoC Discovery Kit";
-	compatible = "microchip,mpfs-disco-kit", "microchip,mpfs";
+	model = "Microchip PolarFire-SoC VIDEO Kit";
+	compatible = "microchip,mpfs-video-kit,mpfs-disco-kit", "microchip,mpfs-sev-kit", "microchip,mpfs";
 
 	soc {
 		dma-ranges = <0x14 0x0 0x0 0x80000000 0x0 0x4000000>,
@@ -24,16 +24,20 @@
 	};
 
 	aliases {
-		ethernet0 = &mac0;
+		ethernet0 = &mac1;
+		serial0 = &mmuart0;
+		serial1 = &mmuart1;
+		serial2 = &mmuart2;
+		serial3 = &mmuart3;
 		serial4 = &mmuart4;
 	};
 
 	chosen {
-		stdout-path = "serial4:115200n8";
+		stdout-path = "serial1:115200n8";
 	};
 
 	cpus {
-		timebase-frequency = <RTCCLK_FREQ>;
+		timebase-frequency = <MTIMER_FREQ>;
 	};
 
 	kernel: memory@80000000 {
@@ -98,7 +102,7 @@
 			compatible = "shared-dma-pool";
 			reg = <0x0 0xc8000000 0x0 0x2000000>;
 			no-map;
-		 };
+		};
 
 		fabricbuf2ddrncwcb: buffer@d8000000 {
 			compatible = "shared-dma-pool";
@@ -135,11 +139,11 @@
 	};
 };
 
-&fpgadma {
+&i2c0 {
 	status = "okay";
 };
 
-&fpgalsram {
+&gpio2 {
 	status = "okay";
 };
 
@@ -160,23 +164,28 @@
 
 &mmc {
 	dma-noncoherent;
+	status = "okay";
 	bus-width = <4>;
 	disable-wp;
 	cap-sd-highspeed;
 	cap-mmc-highspeed;
+	mmc-ddr-1_8v;
+	mmc-hs200-1_8v;
 	sd-uhs-sdr12;
 	sd-uhs-sdr25;
 	sd-uhs-sdr50;
 	sd-uhs-sdr104;
-	no-1-8-v;
+};
+
+&mmuart1 {
 	status = "okay";
 };
 
-&i2c0 {
+&mmuart2 {
 	status = "okay";
 };
 
-&gpio2 {
+&mmuart3 {
 	status = "okay";
 };
 
@@ -193,5 +202,8 @@
 };
 
 &syscontroller {
+	status = "okay";
+};
+&fpgadma {
 	status = "okay";
 };
