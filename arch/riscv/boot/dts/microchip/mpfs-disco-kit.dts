@@ -25,7 +25,7 @@
 
 	aliases {
 		ethernet0 = &mac1;
-		serial2 = &mmuart2;
+		serial1 = &mmuart1;
 		serial4 = &mmuart4;
 	};
 
