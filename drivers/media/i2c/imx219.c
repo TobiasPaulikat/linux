@@ -290,6 +290,8 @@ static const struct imx219_reg raw8_framefmt_regs[] = {
 	{0x018c, 0x08},
 	{0x018d, 0x08},
 	{0x0309, 0x08},
+	{0x5040, 0x00},
+	{0x5041, 0x00},
 };
 
 static const struct imx219_reg raw10_framefmt_regs[] = {
