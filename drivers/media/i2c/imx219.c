@@ -296,6 +296,8 @@ static const struct imx219_reg raw10_framefmt_regs[] = {
 	{0x018c, 0x0a},
 	{0x018d, 0x0a},
 	{0x0309, 0x0a},
+	{0x5040, 0x00},
+	{0x5041, 0x00},
 };
 
 static const s64 imx219_link_freq_menu[] = {
