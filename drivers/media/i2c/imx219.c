@@ -168,7 +168,7 @@ static const struct imx219_reg imx219_common_regs[] = {
 	/* PLL Clock Table */
 	{0x0301, 0x05},	/* VTPXCK_DIV */
 	{0x0303, 0x01},	/* VTSYSCK_DIV */
-	{0x0304, 0x03},	/* PREPLLCK_VT_DIV 0x03 = AUTO set */
+	{0x0304, 0x02},	/* PREPLLCK_VT_DIV 0x03 = AUTO set */
 	{0x0305, 0x03}, /* PREPLLCK_OP_DIV 0x03 = AUTO set */
 	{0x0306, 0x00},	/* PLL_VT_MPY */
 	{0x0307, 0x39},
